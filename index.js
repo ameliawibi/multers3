@@ -18,8 +18,6 @@ app.use(express.static("uploads"));
 // set the name of the upload directory here
 let multerUpload;
 if (process.env.ENV === "PRODUCTION") {
-  multerUpload = multer({ dest: "uploads/" });
-} else {
   multerUpload = multer({
     storage: multerS3({
       s3,
@@ -33,6 +31,8 @@ if (process.env.ENV === "PRODUCTION") {
       },
     }),
   });
+} else {
+  multerUpload = multer({ dest: "uploads/" });
 }
 
 app.get("/recipe", (request, response) => {
@@ -41,7 +41,7 @@ app.get("/recipe", (request, response) => {
 
 app.post("/recipe", multerUpload.single("photo"), (request, response) => {
   console.log(request.file);
-  response.send("worked");
+  response.send(request.file);
 });
 
 app.get("/uploads/:filename", (req, res) => {
