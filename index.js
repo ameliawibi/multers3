@@ -9,6 +9,7 @@ const s3 = new aws.S3({
   accessKeyId: process.env.ACCESSKEYID,
   secretAccessKey: process.env.SECRETACCESSKEY,
 });
+const PORT = process.env.PORT || 3005;
 
 // Set the view engine to ejs
 app.set("view engine", "ejs");
@@ -51,4 +52,4 @@ app.get("/uploads/:filename", (req, res) => {
   return res.sendFile(fullfilepath);
 });
 
-app.listen(3005);
+app.listen(PORT);
