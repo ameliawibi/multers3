@@ -8,6 +8,7 @@ const app = express();
 const s3 = new aws.S3({
   accessKeyId: process.env.ACCESSKEYID,
   secretAccessKey: process.env.SECRETACCESSKEY,
+  region: "ap-southeast-1",
 });
 const PORT = process.env.PORT || 3005;
 
