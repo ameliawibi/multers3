@@ -24,6 +24,7 @@ if (process.env.ENV === "PRODUCTION") {
       s3,
       bucket: "ameliafirstbucket",
       acl: "public-read",
+      contentType: multerS3.AUTO_CONTENT_TYPE,
       metadata: (request, file, callback) => {
         callback(null, { fieldName: file.fieldname });
       },
