@@ -1,0 +1,8 @@
+# File that sometimes appears on MacOS
+.DS_Store
+#env files
+.env
+#file uploads
+uploads/*
+# Dependency directories
+node_modules/

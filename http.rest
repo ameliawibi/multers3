@@ -1,0 +1,7 @@
+GET http://localhost:3005/recipe
+###
+
+GET http://localhost:3005/uploads/c3699eadc3d0e9a3fbf79f4475a7fcb2
+
+###
+
